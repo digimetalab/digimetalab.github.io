@@ -1,0 +1,21 @@
+# robots.txt for Digimetalab - AI Automation Agency
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://digimetalab.my.id/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Popular search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
