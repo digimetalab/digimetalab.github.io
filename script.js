@@ -58,7 +58,7 @@ class Particle {
     }
 
     draw() {
-        ctx.fillStyle = `rgba(0, 194, 255, ${this.opacity})`;
+        ctx.fillStyle = `rgba(123, 104, 238, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -81,7 +81,7 @@ function connectParticles() {
 
             if (distance < 120) {
                 const opacity = (1 - distance / 120) * 0.3;
-                ctx.strokeStyle = `rgba(0, 194, 255, ${opacity})`;
+                ctx.strokeStyle = `rgba(123, 104, 238, ${opacity})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -212,7 +212,7 @@ hero.addEventListener('mousemove', (e) => {
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
     
-    hero.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(0, 194, 255, 0.1), transparent 50%)`;
+    hero.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(123, 104, 238, 0.1), transparent 50%)`;
 });
 
 console.log('Digimetalab - AI Automation for Modern Business');

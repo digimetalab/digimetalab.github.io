@@ -34,8 +34,8 @@ Digimetalab helps businesses accelerate productivity through intelligent automat
 - **Darker Layer:** `#0D0D0D`
 - **Main Text:** `#FFFFFF`
 - **Secondary Text:** `#B5B5B5`
-- **Accent:** `#00C2FF`
-- **Accent 2:** `#6D40FF`
+- **Purple (Primary):** `#7B68EE` (Medium Slate Blue)
+- **Green (Accent):** `#9ACD32` (Yellow Green)
 
 ### Typography
 - **Headings:** Poppins (600, 700, 800)
@@ -172,8 +172,8 @@ Edit CSS variables in `style.css`:
 ```css
 :root {
     --dark-bg: #0F0F10;
-    --accent: #00C2FF;
-    --accent-2: #6D40FF;
+    --purple: #7B68EE;
+    --green: #9ACD32;
 }
 ```
 

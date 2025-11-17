@@ -10,8 +10,10 @@
     --darker-bg: #0D0D0D;
     --main-text: #FFFFFF;
     --secondary-text: #B5B5B5;
-    --accent: #00C2FF;
-    --accent-2: #6D40FF;
+    --accent: #7B68EE;
+    --accent-2: #9ACD32;
+    --purple: #7B68EE;
+    --green: #9ACD32;
     --card-bg: rgba(255, 255, 255, 0.03);
     --border-color: rgba(255, 255, 255, 0.1);
 }
@@ -47,7 +49,7 @@ body {
 
 .navbar.scrolled {
     background: rgba(13, 13, 13, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 194, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(123, 104, 238, 0.1);
 }
 
 .nav-container {
@@ -76,7 +78,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background: linear-gradient(135deg, var(--purple), var(--green));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -97,7 +99,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--accent);
+    color: var(--purple);
 }
 
 .nav-link::after {
@@ -107,7 +109,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent);
+    background: var(--purple);
     transition: width 0.3s ease;
 }
 
@@ -155,8 +157,8 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(0, 194, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 194, 255, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(123, 104, 238, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(123, 104, 238, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     animation: gridMove 20s linear infinite;
 }
@@ -191,7 +193,7 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background: linear-gradient(135deg, var(--purple), var(--green));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -223,24 +225,24 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background: linear-gradient(135deg, var(--purple), var(--green));
     color: var(--main-text);
-    box-shadow: 0 4px 20px rgba(0, 194, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(123, 104, 238, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(0, 194, 255, 0.5);
+    box-shadow: 0 6px 30px rgba(123, 104, 238, 0.5);
 }
 
 .btn-secondary {
     background: transparent;
     color: var(--main-text);
-    border: 2px solid var(--accent);
+    border: 2px solid var(--purple);
 }
 
 .btn-secondary:hover {
-    background: var(--accent);
+    background: var(--purple);
     transform: translateY(-2px);
 }
 
@@ -260,7 +262,7 @@ body {
 .mouse {
     width: 25px;
     height: 40px;
-    border: 2px solid var(--accent);
+    border: 2px solid var(--purple);
     border-radius: 15px;
     position: relative;
 }
@@ -273,7 +275,7 @@ body {
     transform: translateX(-50%);
     width: 4px;
     height: 8px;
-    background: var(--accent);
+    background: var(--purple);
     border-radius: 2px;
     animation: scroll 2s infinite;
 }
@@ -312,7 +314,7 @@ section {
 
 .section-tag {
     display: inline-block;
-    color: var(--accent);
+    color: var(--purple);
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -359,7 +361,7 @@ section {
 .about-tagline {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--purple);
     margin-bottom: 20px;
 }
 
@@ -380,15 +382,15 @@ section {
 
 .stat-card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(0, 194, 255, 0.2);
+    border-color: var(--purple);
+    box-shadow: 0 10px 30px rgba(123, 104, 238, 0.2);
 }
 
 .stat-number {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--purple);
     margin-bottom: 10px;
 }
 
@@ -414,14 +416,14 @@ section {
 
 .service-card:hover {
     transform: translateY(-10px);
-    border-color: var(--accent);
-    box-shadow: 0 15px 40px rgba(0, 194, 255, 0.2);
+    border-color: var(--purple);
+    box-shadow: 0 15px 40px rgba(123, 104, 238, 0.2);
 }
 
 .service-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background: linear-gradient(135deg, var(--purple), var(--green));
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -469,14 +471,14 @@ section {
 
 .process-step:hover {
     transform: translateY(-5px);
-    border-color: var(--accent);
+    border-color: var(--purple);
 }
 
 .step-number {
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background: linear-gradient(135deg, var(--purple), var(--green));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -517,7 +519,7 @@ section {
 
 .tech-item:hover {
     transform: scale(1.05);
-    border-color: var(--accent);
+    border-color: var(--purple);
 }
 
 .tech-icon {
@@ -551,14 +553,14 @@ section {
 
 .case-card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-2);
-    box-shadow: 0 10px 30px rgba(109, 64, 255, 0.2);
+    border-color: var(--green);
+    box-shadow: 0 10px 30px rgba(154, 205, 50, 0.2);
 }
 
 .case-card h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: var(--accent);
+    color: var(--purple);
 }
 
 .case-card p {
@@ -595,7 +597,7 @@ section {
 
 /* CTA Section */
 .cta {
-    background: linear-gradient(135deg, rgba(0, 194, 255, 0.1), rgba(109, 64, 255, 0.1));
+    background: linear-gradient(135deg, rgba(123, 104, 238, 0.1), rgba(154, 205, 50, 0.1));
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
@@ -640,7 +642,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background: linear-gradient(135deg, var(--purple), var(--green));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -653,7 +655,7 @@ section {
 }
 
 .footer-tagline {
-    color: var(--accent);
+    color: var(--purple);
     font-weight: 600;
 }
 
@@ -683,7 +685,7 @@ section {
 }
 
 .footer-column a:hover {
-    color: var(--accent);
+    color: var(--purple);
 }
 
 .social-links {
@@ -704,8 +706,8 @@ section {
 }
 
 .social-links a:hover {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--purple);
+    border-color: var(--purple);
     transform: translateY(-3px);
 }
 
