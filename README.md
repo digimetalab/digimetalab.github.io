@@ -6,7 +6,8 @@
 
 A professional, modern landing page for Digimetalab, an AI Automation Agency under PT. Digital Meta Solutions.
 
-🌐 **Live Site:** [https://digimetalab.github.io](https://digimetalab.github.io)
+🌐 **Live Site:** [https://digimetalab.my.id](https://digimetalab.my.id)  
+🔗 **GitHub Pages:** [https://digimetalab.github.io](https://digimetalab.github.io)
 
 ---
 
@@ -129,6 +130,7 @@ This site is automatically deployed via **GitHub Pages**.
 1. Push changes to the `main` branch
 2. GitHub Pages automatically builds and deploys
 3. Site is live at: https://digimetalab.github.io
+4. Custom domain: https://digimetalab.my.id
 
 ### Manual Deployment:
 ```bash
@@ -198,9 +200,9 @@ Replace files in `assets/img/`:
 
 **PT. Digital Meta Solutions**
 
-- 🌐 Website: [https://digimetalab.github.io](https://digimetalab.github.io)
-- 📧 Email: contact@digimetalab.com
-- 📧 Info: info@digimetalab.com
+- 🌐 Website: [https://digimetalab.my.id](https://digimetalab.my.id)
+- 📧 Email: contact@digimetalab.my.id
+- 📧 Info: info@digimetalab.my.id
 
 ---
 
