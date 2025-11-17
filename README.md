@@ -213,6 +213,9 @@ Replace files in `assets/img/`:
 - 🌐 Website: [https://digimetalab.my.id](https://digimetalab.my.id)
 - 📧 Email: contact@digimetalab.my.id
 - 📧 Info: info@digimetalab.my.id
+- 💼 LinkedIn: [linkedin.com/company/digimetalab](https://linkedin.com/company/digimetalab)
+- 📘 Facebook: [facebook.com/digimetalab](https://www.facebook.com/digimetalab)
+- 📸 Instagram: [instagram.com/digimetalab](https://www.instagram.com/digimetalab)
 
 ---
 
