@@ -30,12 +30,16 @@ Digimetalab helps businesses accelerate productivity through intelligent automat
 ## 🎨 Design Highlights
 
 ### Color Palette
-- **Dark Background:** `#0F0F10`
-- **Darker Layer:** `#0D0D0D`
+- **Dark Background:** `#0A0A0F`
+- **Darker Layer:** `#050508`
 - **Main Text:** `#FFFFFF`
-- **Secondary Text:** `#B5B5B5`
-- **Purple (Primary):** `#7B68EE` (Medium Slate Blue)
-- **Green (Accent):** `#9ACD32` (Yellow Green)
+- **Secondary Text:** `#B8B8C8`
+- **Purple (Primary):** `#8B5CF6` (Vibrant Purple)
+- **Purple Light:** `#A78BFA`
+- **Purple Dark:** `#6D28D9`
+- **Green (Accent):** `#10B981` (Emerald Green)
+- **Green Light:** `#34D399`
+- **Green Dark:** `#059669`
 
 ### Typography
 - **Headings:** Poppins (600, 700, 800)
@@ -171,9 +175,11 @@ git push origin main
 Edit CSS variables in `style.css`:
 ```css
 :root {
-    --dark-bg: #0F0F10;
-    --purple: #7B68EE;
-    --green: #9ACD32;
+    --dark-bg: #0A0A0F;
+    --purple: #8B5CF6;
+    --green: #10B981;
+    --glow-purple: rgba(139, 92, 246, 0.4);
+    --glow-green: rgba(16, 185, 129, 0.4);
 }
 ```
 

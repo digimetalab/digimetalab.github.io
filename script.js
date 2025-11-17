@@ -58,10 +58,22 @@ class Particle {
     }
 
     draw() {
-        ctx.fillStyle = `rgba(123, 104, 238, ${this.opacity})`;
+        // Alternate between purple and green particles
+        const isPurple = Math.random() > 0.5;
+        ctx.fillStyle = isPurple 
+            ? `rgba(139, 92, 246, ${this.opacity})` 
+            : `rgba(16, 185, 129, ${this.opacity})`;
+        
+        // Add glow effect
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = isPurple ? 'rgba(139, 92, 246, 0.8)' : 'rgba(16, 185, 129, 0.8)';
+        
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
+        
+        // Reset shadow
+        ctx.shadowBlur = 0;
     }
 }
 
@@ -80,13 +92,24 @@ function connectParticles() {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < 120) {
-                const opacity = (1 - distance / 120) * 0.3;
-                ctx.strokeStyle = `rgba(123, 104, 238, ${opacity})`;
-                ctx.lineWidth = 1;
+                const opacity = (1 - distance / 120) * 0.5;
+                // Create gradient for connection lines
+                const gradient = ctx.createLinearGradient(
+                    particlesArray[a].x, particlesArray[a].y,
+                    particlesArray[b].x, particlesArray[b].y
+                );
+                gradient.addColorStop(0, `rgba(139, 92, 246, ${opacity})`);
+                gradient.addColorStop(1, `rgba(16, 185, 129, ${opacity})`);
+                
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 1.5;
+                ctx.shadowBlur = 5;
+                ctx.shadowColor = 'rgba(139, 92, 246, 0.5)';
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
                 ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
                 ctx.stroke();
+                ctx.shadowBlur = 0;
             }
         }
     }
@@ -212,7 +235,10 @@ hero.addEventListener('mousemove', (e) => {
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
     
-    hero.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(123, 104, 238, 0.1), transparent 50%)`;
+    hero.style.background = `
+        radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(139, 92, 246, 0.2), transparent 40%),
+        radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(16, 185, 129, 0.15), transparent 50%)
+    `;
 });
 
 console.log('Digimetalab - AI Automation for Modern Business');
