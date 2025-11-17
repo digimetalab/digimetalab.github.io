@@ -242,3 +242,112 @@ hero.addEventListener('mousemove', (e) => {
 });
 
 console.log('Digimetalab - AI Automation for Modern Business');
+
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    });
+});
+
+// Contact Form Handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+        
+        // Create mailto link with form data
+        const subject = encodeURIComponent(`New Inquiry from ${data.name}`);
+        const body = encodeURIComponent(
+            `Name: ${data.name}\n` +
+            `Email: ${data.email}\n` +
+            `Company: ${data.company || 'N/A'}\n` +
+            `Phone: ${data.phone || 'N/A'}\n` +
+            `Service Interest: ${data.service || 'N/A'}\n\n` +
+            `Message:\n${data.message}`
+        );
+        
+        // Open email client
+        window.location.href = `mailto:contact@digimetalab.my.id?subject=${subject}&body=${body}`;
+        
+        // Show success message
+        alert('Thank you for your interest! Your email client will open to send the message. We\'ll get back to you within 24 hours.');
+        
+        // Reset form
+        contactForm.reset();
+    });
+}
+
+// Smooth scroll with offset for fixed navbar
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = target.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Add animation to elements on scroll
+const animateOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe testimonials and FAQ items
+document.querySelectorAll('.testimonial-card, .faq-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    animateOnScroll.observe(el);
+});
+
+// WhatsApp button entrance animation
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const whatsappBtn = document.querySelector('.whatsapp-float');
+        if (whatsappBtn) {
+            whatsappBtn.style.opacity = '0';
+            whatsappBtn.style.transform = 'scale(0)';
+            whatsappBtn.style.transition = 'all 0.5s ease';
+            
+            setTimeout(() => {
+                whatsappBtn.style.opacity = '1';
+                whatsappBtn.style.transform = 'scale(1)';
+            }, 100);
+        }
+    }, 2000);
+});
