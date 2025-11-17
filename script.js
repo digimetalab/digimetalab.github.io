@@ -351,3 +351,86 @@ window.addEventListener('load', () => {
         }
     }, 2000);
 });
+
+
+// Google Analytics Event Tracking
+function trackEvent(category, action, label) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            'event_category': category,
+            'event_label': label
+        });
+    }
+}
+
+// Track CTA button clicks
+document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const text = this.textContent.trim();
+        trackEvent('CTA', 'click', text);
+    });
+});
+
+// Track navigation clicks
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+        const section = this.textContent.trim();
+        trackEvent('Navigation', 'click', section);
+    });
+});
+
+// Track WhatsApp button click
+const whatsappBtn = document.querySelector('.whatsapp-float');
+if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', function() {
+        trackEvent('Contact', 'click', 'WhatsApp Button');
+    });
+}
+
+// Track form submission
+const contactFormTracking = document.getElementById('contactForm');
+if (contactFormTracking) {
+    contactFormTracking.addEventListener('submit', function() {
+        trackEvent('Form', 'submit', 'Contact Form');
+    });
+}
+
+// Track service card clicks
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const title = this.querySelector('.service-title')?.textContent || 'Service';
+        trackEvent('Service', 'view', title);
+    });
+});
+
+// Track FAQ interactions
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', function() {
+        const faqTitle = this.querySelector('h3')?.textContent || 'FAQ';
+        trackEvent('FAQ', 'expand', faqTitle);
+    });
+});
+
+// Track scroll depth
+let scrollDepth = 0;
+window.addEventListener('scroll', function() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const currentDepth = Math.round((scrollTop + windowHeight) / documentHeight * 100);
+    
+    // Track at 25%, 50%, 75%, 100%
+    if (currentDepth >= 25 && scrollDepth < 25) {
+        scrollDepth = 25;
+        trackEvent('Scroll', 'depth', '25%');
+    } else if (currentDepth >= 50 && scrollDepth < 50) {
+        scrollDepth = 50;
+        trackEvent('Scroll', 'depth', '50%');
+    } else if (currentDepth >= 75 && scrollDepth < 75) {
+        scrollDepth = 75;
+        trackEvent('Scroll', 'depth', '75%');
+    } else if (currentDepth >= 95 && scrollDepth < 100) {
+        scrollDepth = 100;
+        trackEvent('Scroll', 'depth', '100%');
+    }
+});
