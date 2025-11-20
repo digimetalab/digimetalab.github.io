@@ -58,15 +58,15 @@ class Particle {
     }
 
     draw() {
-        // Alternate between purple and green particles
-        const isPurple = Math.random() > 0.5;
-        ctx.fillStyle = isPurple 
-            ? `rgba(139, 92, 246, ${this.opacity})` 
-            : `rgba(16, 185, 129, ${this.opacity})`;
+        // Alternate between primary and accent particles
+        const isPrimary = Math.random() > 0.6;
+        ctx.fillStyle = isPrimary 
+            ? `rgba(99, 102, 241, ${this.opacity})` 
+            : `rgba(6, 182, 212, ${this.opacity * 0.8})`;
         
-        // Add glow effect
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = isPurple ? 'rgba(139, 92, 246, 0.8)' : 'rgba(16, 185, 129, 0.8)';
+        // Add subtle glow effect
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = isPrimary ? 'rgba(99, 102, 241, 0.6)' : 'rgba(6, 182, 212, 0.5)';
         
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -91,20 +91,20 @@ function connectParticles() {
             const dy = particlesArray[a].y - particlesArray[b].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 120) {
-                const opacity = (1 - distance / 120) * 0.5;
+            if (distance < 140) {
+                const opacity = (1 - distance / 140) * 0.4;
                 // Create gradient for connection lines
                 const gradient = ctx.createLinearGradient(
                     particlesArray[a].x, particlesArray[a].y,
                     particlesArray[b].x, particlesArray[b].y
                 );
-                gradient.addColorStop(0, `rgba(139, 92, 246, ${opacity})`);
-                gradient.addColorStop(1, `rgba(16, 185, 129, ${opacity})`);
+                gradient.addColorStop(0, `rgba(99, 102, 241, ${opacity})`);
+                gradient.addColorStop(1, `rgba(6, 182, 212, ${opacity * 0.8})`);
                 
                 ctx.strokeStyle = gradient;
-                ctx.lineWidth = 1.5;
-                ctx.shadowBlur = 5;
-                ctx.shadowColor = 'rgba(139, 92, 246, 0.5)';
+                ctx.lineWidth = 1;
+                ctx.shadowBlur = 3;
+                ctx.shadowColor = 'rgba(99, 102, 241, 0.3)';
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
                 ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
@@ -236,8 +236,9 @@ hero.addEventListener('mousemove', (e) => {
     const y = e.clientY / window.innerHeight;
     
     hero.style.background = `
-        radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(139, 92, 246, 0.2), transparent 40%),
-        radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(16, 185, 129, 0.15), transparent 50%)
+        var(--dark-bg),
+        radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(99, 102, 241, 0.15), transparent 50%),
+        radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(6, 182, 212, 0.1), transparent 60%)
     `;
 });
 
