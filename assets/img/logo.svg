@@ -1,19 +1,30 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#10B981;stop-opacity:0.9" />
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0.9" />
     </linearGradient>
     <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#34D399;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#818CF8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22D3EE;stop-opacity:1" />
     </linearGradient>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0.1" />
+    </radialGradient>
     <filter id="glow">
       <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -22,30 +33,30 @@
   </defs>
   
   <!-- Background Circle -->
-  <circle cx="100" cy="100" r="95" fill="url(#gradient1)" opacity="0.15"/>
+  <circle cx="100" cy="100" r="95" fill="url(#bgGradient)"/>
   
-  <!-- Main Logo Shape - Abstract D inspired by original logo -->
-  <path d="M60 60 L60 140 L90 140 C115 140 135 120 135 95 C135 70 115 50 90 50 L60 50 L60 60 Z" fill="url(#gradient2)" stroke="url(#gradient3)" stroke-width="3" filter="url(#glow)"/>
+  <!-- Main Logo Shape - Modern D -->
+  <path d="M60 60 L60 140 L90 140 C115 140 135 120 135 95 C135 70 115 50 90 50 L60 50 L60 60 Z" fill="url(#gradient2)" stroke="url(#gradient3)" stroke-width="3" filter="url(#strongGlow)"/>
   
-  <!-- Green accent circle (top right like original) -->
-  <circle cx="145" cy="55" r="18" fill="#10B981" opacity="1" filter="url(#glow)"/>
+  <!-- Cyan accent circle (top right) -->
+  <circle cx="145" cy="55" r="18" fill="#06B6D4" opacity="1" filter="url(#glow)"/>
   
-  <!-- AI Neural Network Nodes -->
-  <circle cx="120" cy="75" r="8" fill="#8B5CF6" filter="url(#glow)"/>
-  <circle cx="145" cy="85" r="6" fill="#10B981" filter="url(#glow)"/>
-  <circle cx="135" cy="110" r="7" fill="#A78BFA" filter="url(#glow)"/>
-  <circle cx="155" cy="100" r="5" fill="#34D399" filter="url(#glow)"/>
+  <!-- AI Neural Network -->
+  <circle cx="120" cy="75" r="8" fill="#6366F1" filter="url(#glow)"/>
+  <circle cx="145" cy="85" r="6" fill="#06B6D4" filter="url(#glow)"/>
+  <circle cx="135" cy="110" r="7" fill="#818CF8" filter="url(#glow)"/>
+  <circle cx="155" cy="100" r="5" fill="#22D3EE" filter="url(#glow)"/>
   
-  <!-- Connection Lines -->
-  <line x1="120" y1="75" x2="145" y2="85" stroke="url(#gradient3)" stroke-width="2.5" opacity="0.8"/>
-  <line x1="145" y1="85" x2="155" y2="100" stroke="url(#gradient3)" stroke-width="2.5" opacity="0.8"/>
-  <line x1="120" y1="75" x2="135" y2="110" stroke="url(#gradient3)" stroke-width="2.5" opacity="0.8"/>
-  <line x1="135" y1="110" x2="155" y2="100" stroke="url(#gradient3)" stroke-width="2.5" opacity="0.8"/>
+  <!-- Neural Connections -->
+  <line x1="120" y1="75" x2="145" y2="85" stroke="url(#gradient3)" stroke-width="2.5" opacity="0.9"/>
+  <line x1="145" y1="85" x2="155" y2="100" stroke="url(#gradient3)" stroke-width="2.5" opacity="0.9"/>
+  <line x1="120" y1="75" x2="135" y2="110" stroke="url(#gradient3)" stroke-width="2.5" opacity="0.9"/>
+  <line x1="135" y1="110" x2="155" y2="100" stroke="url(#gradient3)" stroke-width="2.5" opacity="0.9"/>
   
-  <!-- Digital Elements -->
-  <rect x="70" y="70" width="15" height="3" fill="#8B5CF6" opacity="0.9" rx="1.5"/>
-  <rect x="70" y="80" width="20" height="3" fill="#10B981" opacity="0.9" rx="1.5"/>
-  <rect x="70" y="90" width="18" height="3" fill="#A78BFA" opacity="0.9" rx="1.5"/>
-  <rect x="70" y="100" width="22" height="3" fill="#34D399" opacity="0.9" rx="1.5"/>
-  <rect x="70" y="110" width="16" height="3" fill="#8B5CF6" opacity="0.9" rx="1.5"/>
+  <!-- Digital Data Bars -->
+  <rect x="70" y="70" width="15" height="3" fill="#6366F1" opacity="0.9" rx="1.5"/>
+  <rect x="70" y="80" width="20" height="3" fill="#06B6D4" opacity="0.9" rx="1.5"/>
+  <rect x="70" y="90" width="18" height="3" fill="#818CF8" opacity="0.9" rx="1.5"/>
+  <rect x="70" y="100" width="22" height="3" fill="#22D3EE" opacity="0.9" rx="1.5"/>
+  <rect x="70" y="110" width="16" height="3" fill="#6366F1" opacity="0.9" rx="1.5"/>
 </svg>
