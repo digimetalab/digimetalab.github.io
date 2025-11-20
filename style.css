@@ -88,6 +88,8 @@ body {
     width: auto;
     max-width: 140px;
     transition: transform 0.3s ease;
+    display: block;
+    object-fit: contain;
 }
 
 .logo-img:hover {
@@ -822,15 +824,32 @@ section {
     max-width: 400px;
 }
 
-.footer-logo {
+.footer-logo-container {
+    margin-bottom: 16px;
+}
+
+.footer-logo-img {
+    height: 32px;
+    width: auto;
+    max-width: 120px;
+    transition: transform 0.3s ease;
+    display: block;
+    object-fit: contain;
+}
+
+.footer-logo-img:hover {
+    transform: scale(1.05);
+}
+
+.footer-logo-text {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--purple), var(--green));
+    background: var(--gradient-1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 15px;
+    margin: 0;
 }
 
 .footer-company {
@@ -1372,5 +1391,19 @@ section {
     .whatsapp-float svg {
         width: 28px;
         height: 28px;
+    }
+}
+/* Footer Logo Responsive */
+@media (max-width: 768px) {
+    .footer-logo-img {
+        height: 28px;
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo-img {
+        height: 24px;
+        max-width: 90px;
     }
 }

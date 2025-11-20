@@ -1,54 +1,5 @@
-<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#818CF8;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#22D3EE;stop-opacity:1" />
-    </linearGradient>
-    <radialGradient id="bgGlow" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:0.1" />
-      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0.05" />
-    </radialGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  
-  <!-- Background Glow -->
-  <circle cx="100" cy="100" r="95" fill="url(#bgGlow)"/>
-  
-  <!-- Main D Shape -->
-  <path d="M50 40 L50 160 L90 160 C125 160 150 135 150 100 C150 65 125 40 90 40 L50 40 Z" fill="url(#primaryGrad)" filter="url(#glow)"/>
-  
-  <!-- Digital Cuts -->
-  <path d="M95 70 L115 70 L105 90 L95 90 Z" fill="#0B0D17" opacity="0.8"/>
-  <path d="M95 110 L115 110 L105 130 L95 130 Z" fill="#0B0D17" opacity="0.8"/>
-  
-  <!-- AI Network Nodes -->
-  <circle cx="130" cy="60" r="6" fill="#06B6D4" opacity="0.9"/>
-  <circle cx="150" cy="80" r="4" fill="#818CF8" opacity="0.9"/>
-  <circle cx="140" cy="100" r="5" fill="#22D3EE" opacity="0.9"/>
-  <circle cx="155" cy="120" r="3.5" fill="#6366F1" opacity="0.9"/>
-  <circle cx="135" cy="140" r="4.5" fill="#06B6D4" opacity="0.9"/>
-  
-  <!-- Neural Connections -->
-  <path d="M130 60 L150 80 M150 80 L140 100 M140 100 L155 120 M155 120 L135 140" 
-        stroke="url(#accentGrad)" stroke-width="2" opacity="0.6" fill="none"/>
-  
-  <!-- Data Streams -->
-  <rect x="60" y="60" width="25" height="3" fill="#6366F1" opacity="0.8" rx="1.5"/>
-  <rect x="60" y="70" width="30" height="3" fill="#06B6D4" opacity="0.8" rx="1.5"/>
-  <rect x="60" y="80" width="20" height="3" fill="#818CF8" opacity="0.8" rx="1.5"/>
-  <rect x="60" y="90" width="35" height="3" fill="#22D3EE" opacity="0.8" rx="1.5"/>
-  <rect x="60" y="110" width="28" height="3" fill="#6366F1" opacity="0.8" rx="1.5"/>
-  <rect x="60" y="120" width="18" height="3" fill="#06B6D4" opacity="0.8" rx="1.5"/>
-  <rect x="60" y="130" width="32" height="3" fill="#818CF8" opacity="0.8" rx="1.5"/>
-  <rect x="60" y="140" width="22" height="3" fill="#22D3EE" opacity="0.8" rx="1.5"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="192" height="192">
+<path d="M0 0 C10.7018916 -0.11625801 19.71900729 2.97133133 28 10 C34.61781339 16.82748668 38.31604385 24.68871305 40 34 C41.2375 33.67 42.475 33.34 43.75 33 C55.57585872 30.65507224 69.75749139 30.33928692 81 35 C82.10472656 35.45246094 83.20945312 35.90492187 84.34765625 36.37109375 C98.76256368 42.91191681 110.73846509 53.79849938 116.5625 68.84765625 C122.50256255 85.46600312 122.79668918 101.86774502 115.43701172 118.12597656 C108.41270914 132.61381511 97.49314516 143.21450357 82.61328125 149.41015625 C79.75472951 150.39113526 76.9308782 151.26618847 74 152 C73.23945312 152.19078125 72.47890625 152.3815625 71.6953125 152.578125 C54.756828 155.22936605 38.84203605 151.80115171 24.52734375 142.37109375 C16.32293107 136.30573892 10.37420384 129.33557087 5.6875 120.3125 C5.19914673 119.39706421 5.19914673 119.39706421 4.70092773 118.46313477 C-2.03880736 104.74014413 -1.34458121 90.0540822 -1.07421875 75.1953125 C-1.04612927 73.018155 -1.01944503 70.84097896 -0.99409485 68.66378784 C-0.92417863 62.97880236 -0.8353796 57.29426846 -0.74243164 51.60961914 C-0.65070173 45.79068102 -0.57712771 39.97151513 -0.50195312 34.15234375 C-0.3522446 22.76793675 -0.18255475 11.38392441 0 0 Z M44.015625 73.21484375 C39.40660246 77.29686565 36.27715328 82.67870413 35.76171875 88.85546875 C35.55013962 98.35425812 36.87071947 103.83390443 43.3125 110.8125 C49.72725174 116.72757634 55.27559769 117.57940797 63.84765625 117.34375 C71.71921279 116.48538944 77.12741771 112.04561136 82 106 C85.85733983 99.77848414 85.8859107 93.17246934 85 86 C82.78078839 78.49988667 78.68676647 73.89719518 72 70 C62.18036044 64.97042852 52.65026305 67.07096667 44.015625 73.21484375 Z " fill="#6166E4" transform="translate(36,22)"/>
+<path d="M0 0 C12.87 0 25.74 0 39 0 C39 12.87 39 25.74 39 39 C36.69 39 34.38 39 32 39 C31.72027344 38.23816406 31.44054687 37.47632813 31.15234375 36.69140625 C24.96966698 20.76753456 15.26700632 13.0488093 0 6 C0 4.02 0 2.04 0 0 Z " fill="#5CACCB" transform="translate(118,17)"/>
 </svg>
