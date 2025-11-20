@@ -75,7 +75,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 18px 20px;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 14px 16px;
+    }
 }
 
 .logo {
@@ -84,9 +96,9 @@ body {
 }
 
 .logo-img {
-    height: 32px;
+    height: 42px;
     width: auto;
-    max-width: 140px;
+    max-width: 180px;
     transition: transform 0.3s ease;
     display: block;
     object-fit: contain;
@@ -96,17 +108,24 @@ body {
     transform: scale(1.05);
 }
 
+@media (max-width: 1024px) {
+    .logo-img {
+        height: 38px;
+        max-width: 160px;
+    }
+}
+
 @media (max-width: 768px) {
     .logo-img {
-        height: 28px;
-        max-width: 120px;
+        height: 36px;
+        max-width: 150px;
     }
 }
 
 @media (max-width: 480px) {
     .logo-img {
-        height: 24px;
-        max-width: 100px;
+        height: 32px;
+        max-width: 130px;
     }
 }
 
@@ -829,9 +848,9 @@ section {
 }
 
 .footer-logo-img {
-    height: 32px;
+    height: 40px;
     width: auto;
-    max-width: 120px;
+    max-width: 160px;
     transition: transform 0.3s ease;
     display: block;
     object-fit: contain;
@@ -1394,17 +1413,24 @@ section {
     }
 }
 /* Footer Logo Responsive */
+@media (max-width: 1024px) {
+    .footer-logo-img {
+        height: 36px;
+        max-width: 140px;
+    }
+}
+
 @media (max-width: 768px) {
     .footer-logo-img {
-        height: 28px;
-        max-width: 100px;
+        height: 34px;
+        max-width: 130px;
     }
 }
 
 @media (max-width: 480px) {
     .footer-logo-img {
-        height: 24px;
-        max-width: 90px;
+        height: 30px;
+        max-width: 120px;
     }
 }
 /
