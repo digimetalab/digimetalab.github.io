@@ -84,13 +84,28 @@ body {
 }
 
 .logo-img {
-    height: 35px;
+    height: 32px;
     width: auto;
+    max-width: 140px;
     transition: transform 0.3s ease;
 }
 
 .logo-img:hover {
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 28px;
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 24px;
+        max-width: 100px;
+    }
 }
 
 .logo-text {
