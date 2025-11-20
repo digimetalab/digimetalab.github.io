@@ -6,7 +6,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=flat)
 
-![Digimetalab](assets/img/logo.svg)
+![Digimetalab](assets/img/logo-light.svg)
 
 **AI Automation for Modern Business**
 
