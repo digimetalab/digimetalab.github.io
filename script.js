@@ -3,13 +3,57 @@ const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+// Throttle function for performance
+function throttle(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        if (!timeout) {
+            timeout = setTimeout(() => {
+                func(...args);
+                timeout = null;
+            }, wait);
+        }
+    };
+}
+
+// Consolidated scroll handler with throttle for performance
+let scrollDepth = 0;
+const handleScroll = throttle(() => {
+    const scrollY = window.pageYOffset;
+    
+    // Navbar scroll effect
+    navbar.classList.toggle('scrolled', scrollY > 50);
+    
+    // Parallax effect for hero
+    if (scrollY < window.innerHeight) {
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            heroContent.style.transform = `translateY(${scrollY * 0.5}px)`;
+            heroContent.style.opacity = 1 - (scrollY / window.innerHeight);
+        }
     }
-});
+    
+    // Scroll depth tracking
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const currentDepth = Math.round((scrollY + windowHeight) / documentHeight * 100);
+    
+    if (currentDepth >= 25 && scrollDepth < 25) {
+        scrollDepth = 25;
+        trackEvent('Scroll', 'depth', '25%');
+    } else if (currentDepth >= 50 && scrollDepth < 50) {
+        scrollDepth = 50;
+        trackEvent('Scroll', 'depth', '50%');
+    } else if (currentDepth >= 75 && scrollDepth < 75) {
+        scrollDepth = 75;
+        trackEvent('Scroll', 'depth', '75%');
+    } else if (currentDepth >= 95 && scrollDepth < 100) {
+        scrollDepth = 100;
+        trackEvent('Scroll', 'depth', '100%');
+    }
+}, 100);
+
+window.addEventListener('scroll', handleScroll, { passive: true });
 
 // Mobile menu toggle
 hamburger.addEventListener('click', () => {
@@ -33,7 +77,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
-const numberOfParticles = 80;
+// Reduce particles on mobile for better performance
+const numberOfParticles = window.innerWidth < 768 ? 40 : window.innerWidth < 1024 ? 60 : 80;
 
 class Particle {
     constructor() {
@@ -58,22 +103,15 @@ class Particle {
     }
 
     draw() {
-        // Alternate between primary and accent particles
+        // Simplified draw without shadow for performance
         const isPrimary = Math.random() > 0.6;
         ctx.fillStyle = isPrimary 
             ? `rgba(99, 102, 241, ${this.opacity})` 
             : `rgba(6, 182, 212, ${this.opacity * 0.8})`;
         
-        // Add subtle glow effect
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = isPrimary ? 'rgba(99, 102, 241, 0.6)' : 'rgba(6, 182, 212, 0.5)';
-        
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
-        
-        // Reset shadow
-        ctx.shadowBlur = 0;
     }
 }
 
@@ -85,37 +123,44 @@ function init() {
 }
 
 function connectParticles() {
+    const maxDistance = 140;
     for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
+        let connections = 0;
+        for (let b = a + 1; b < particlesArray.length; b++) {
+            // Limit connections per particle for performance
+            if (connections >= 3) break;
+            
+            // Early exit optimization
             const dx = particlesArray[a].x - particlesArray[b].x;
+            if (Math.abs(dx) > maxDistance) continue;
+            
             const dy = particlesArray[a].y - particlesArray[b].y;
+            if (Math.abs(dy) > maxDistance) continue;
+            
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 140) {
-                const opacity = (1 - distance / 140) * 0.4;
-                // Create gradient for connection lines
-                const gradient = ctx.createLinearGradient(
-                    particlesArray[a].x, particlesArray[a].y,
-                    particlesArray[b].x, particlesArray[b].y
-                );
-                gradient.addColorStop(0, `rgba(99, 102, 241, ${opacity})`);
-                gradient.addColorStop(1, `rgba(6, 182, 212, ${opacity * 0.8})`);
+            if (distance < maxDistance) {
+                connections++;
+                const opacity = (1 - distance / maxDistance) * 0.3;
                 
-                ctx.strokeStyle = gradient;
+                // Simplified stroke without gradient for performance
+                ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
                 ctx.lineWidth = 1;
-                ctx.shadowBlur = 3;
-                ctx.shadowColor = 'rgba(99, 102, 241, 0.3)';
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
                 ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
                 ctx.stroke();
-                ctx.shadowBlur = 0;
             }
         }
     }
 }
 
+let animationId;
+let isAnimating = true;
+
 function animate() {
+    if (!isAnimating) return;
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     for (let i = 0; i < particlesArray.length; i++) {
@@ -124,8 +169,19 @@ function animate() {
     }
     
     connectParticles();
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 }
+
+// Pause animation when tab is not visible
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        isAnimating = false;
+        if (animationId) cancelAnimationFrame(animationId);
+    } else {
+        isAnimating = true;
+        animate();
+    }
+});
 
 init();
 animate();
@@ -137,53 +193,30 @@ window.addEventListener('resize', () => {
     init();
 });
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+// Smooth scroll for anchor links (removed duplicate later in code)
 
-// Intersection Observer for fade-in animations
+// Consolidated Intersection Observer for all animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const animationObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('visible');
+            animationObserver.unobserve(entry.target); // Stop observing after animation
         }
     });
 }, observerOptions);
 
-// Observe all cards and sections
-document.querySelectorAll('.service-card, .process-step, .case-card, .benefit-item, .stat-card, .tech-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+// Observe all animated elements at once
+document.querySelectorAll('.service-card, .process-step, .case-card, .benefit-item, .stat-card, .tech-item, .testimonial-card, .faq-item').forEach(el => {
+    el.classList.add('fade-in-element');
+    animationObserver.observe(el);
 });
 
-// Add hover effect to service cards
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
+// Hover effect moved to CSS for better performance
 
 // Counter animation for stats
 const animateCounter = (element, target, duration = 2000) => {
@@ -211,6 +244,7 @@ const statObserver = new IntersectionObserver((entries) => {
             const text = entry.target.textContent;
             const number = parseInt(text.replace(/\D/g, ''));
             animateCounter(entry.target, number);
+            statObserver.unobserve(entry.target); // Stop observing after animation
         }
     });
 }, { threshold: 0.5 });
@@ -219,28 +253,20 @@ document.querySelectorAll('.stat-number').forEach(stat => {
     statObserver.observe(stat);
 });
 
-// Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-        heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
-    }
-});
+// Parallax effect merged with main scroll handler for performance
 
-// Add glow effect on mouse move for hero section
+// Optimized glow effect with throttle
 const hero = document.querySelector('.hero');
-hero.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    
-    hero.style.background = `
-        var(--dark-bg),
-        radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(99, 102, 241, 0.15), transparent 50%),
-        radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(6, 182, 212, 0.1), transparent 60%)
-    `;
-});
+const handleHeroMouseMove = throttle((e) => {
+    const x = (e.clientX / window.innerWidth * 100).toFixed(0);
+    const y = (e.clientY / window.innerHeight * 100).toFixed(0);
+    hero.style.setProperty('--mouse-x', `${x}%`);
+    hero.style.setProperty('--mouse-y', `${y}%`);
+}, 50);
+
+if (hero) {
+    hero.addEventListener('mousemove', handleHeroMouseMove);
+}
 
 console.log('Digimetalab - AI Automation for Modern Business');
 
@@ -315,26 +341,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add animation to elements on scroll
-const animateOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
-
-// Observe testimonials and FAQ items
-document.querySelectorAll('.testimonial-card, .faq-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    animateOnScroll.observe(el);
-});
+// Removed duplicate observer - already handled above
 
 // WhatsApp button entrance animation
 window.addEventListener('load', () => {
@@ -412,26 +419,4 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
-// Track scroll depth
-let scrollDepth = 0;
-window.addEventListener('scroll', function() {
-    const windowHeight = window.innerHeight;
-    const documentHeight = document.documentElement.scrollHeight;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const currentDepth = Math.round((scrollTop + windowHeight) / documentHeight * 100);
-    
-    // Track at 25%, 50%, 75%, 100%
-    if (currentDepth >= 25 && scrollDepth < 25) {
-        scrollDepth = 25;
-        trackEvent('Scroll', 'depth', '25%');
-    } else if (currentDepth >= 50 && scrollDepth < 50) {
-        scrollDepth = 50;
-        trackEvent('Scroll', 'depth', '50%');
-    } else if (currentDepth >= 75 && scrollDepth < 75) {
-        scrollDepth = 75;
-        trackEvent('Scroll', 'depth', '75%');
-    } else if (currentDepth >= 95 && scrollDepth < 100) {
-        scrollDepth = 100;
-        trackEvent('Scroll', 'depth', '100%');
-    }
-});
+// Scroll depth tracking merged with main scroll handler
