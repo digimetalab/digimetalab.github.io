@@ -93,6 +93,8 @@ body {
 .logo {
     display: flex;
     align-items: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .logo-img {
@@ -845,6 +847,9 @@ section {
 
 .footer-logo-container {
     margin-bottom: 16px;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .footer-logo-img {
