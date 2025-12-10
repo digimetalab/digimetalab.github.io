@@ -25,18 +25,34 @@ Digimetalab helps businesses accelerate productivity through intelligent automat
 
 ## ✨ Features
 
-- **Modern Design** - Sleek dark theme with vibrant purple & green accents
+### Design & Theme
+- **POLAR Design Theme** - Modern dark theme with lime (#BFFF00) & purple (#8B5CF6) accents
+- **Aurora Background Effect** - Dynamic animated gradient blobs that change based on section
+- **AI Robot Animation** - Cute walking robot mascot in hero section with color-changing effect
 - **Fully Responsive** - Optimized for desktop, tablet, and mobile devices
-- **Smooth Animations** - Particle effects, fade-ins, counters, and parallax scrolling
+
+### User Experience
+- **Donut Menu Navigation** - Modern fullscreen overlay menu with lime dot hover effects
+- **Smooth Scroll Animations** - Intersection Observer-based fade-in animations
+- **Scroll Indicator** - Animated mouse icon with "Scroll to explore" label
+
+### AI Chat Widget
+- **AI Assistant** - Powered by Groq LLaMA 3.3 70B via serverless function
+- **WhatsApp Integration** - Direct messaging option
+- **Bilingual Support** - English and Indonesian translations
+
+### Pages
+- **Landing Page** - Complete sections: Hero, About, Services, Work, Tech Stack, Testimonials, Contact
+- **FAQ Page** - Dedicated FAQ page with accordion functionality
+- **Privacy Policy** - Comprehensive privacy policy page
+- **Terms of Service** - Detailed terms of service page
+
+### Technical
+- **Netlify Functions** - Serverless backend for AI chat
+- **Environment Variables** - Configurable Groq API parameters
 - **SEO Optimized** - Proper meta tags, semantic HTML, and open graph tags
-- **Fast Loading** - Lightweight vanilla JavaScript with no heavy frameworks
-- **Interactive Elements** - Sticky navbar, mobile menu, smooth scrolling
-- **Contact Form** - Professional inquiry form with validation
-- **FAQ Accordion** - Interactive Q&A section
-- **Testimonials** - Client reviews with star ratings
-- **WhatsApp Integration** - Floating button for instant messaging
-- **Lead Generation** - Multiple conversion points throughout the page
-- **Google Analytics** - Comprehensive tracking and event monitoring
+- **Fast Loading** - Lightweight vanilla JavaScript with GPU-accelerated animations
+
 
 ---
 

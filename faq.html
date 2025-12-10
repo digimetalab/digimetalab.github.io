@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Digimetalab | AI Automation Agency Indonesia</title>
+    <meta name="description"
+        content="Frequently Asked Questions about Digimetalab's AI automation services, pricing, and how we help businesses transform digitally.">
+    <link rel="canonical" href="https://digimetalab.my.id/faq.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .legal-page {
+            min-height: 100vh;
+            padding: 120px 0 80px;
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .legal-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-lime);
+            border-radius: 20px;
+            margin: 0 auto 24px;
+        }
+
+        .legal-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: #0A0A0A;
+        }
+
+        .legal-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .legal-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-lime);
+            font-weight: 500;
+            margin-bottom: 40px;
+            transition: var(--transition-fast);
+        }
+
+        .back-link:hover {
+            gap: 12px;
+        }
+
+        .back-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            margin-bottom: 48px;
+        }
+
+        .faq-category-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-lime);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-lime);
+            border-radius: 6px;
+            color: #0A0A0A;
+            font-weight: 700;
+            font-size: 18px;
+            transition: var(--transition-fast);
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .legal-footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        .legal-footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Effect -->
+    <div class="aurora-bg" aria-hidden="true">
+        <div class="aurora-blob aurora-blob-1"></div>
+        <div class="aurora-blob aurora-blob-2"></div>
+        <div class="aurora-blob aurora-blob-3"></div>
+        <div class="aurora-noise"></div>
+    </div>
+
+    <main class="legal-page">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+            </a>
+
+            <div class="legal-header">
+                <div class="legal-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                </div>
+                <h1 class="legal-title">Frequently Asked <span class="accent">Questions</span></h1>
+                <p class="legal-subtitle">Find answers to common questions about our AI automation services</p>
+            </div>
+
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">General Questions</h2>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What is Digimetalab?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Digimetalab is a leading AI Automation Agency based in Indonesia, established in 2013.
+                                We specialize in building intelligent automation solutions that help businesses
+                                streamline operations, reduce manual work by 60-80%, and elevate overall performance
+                                through cutting-edge AI and workflow automation technologies.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What industries do you serve?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                We serve a wide range of industries including e-commerce, healthcare, finance,
+                                manufacturing, education, real estate, and professional services. Our solutions are
+                                customizable to meet the specific needs and workflows of any business sector.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How long have you been in business?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Digimetalab has been operating since 2013, giving us over 12 years of experience in
+                                digital transformation and automation solutions. We've successfully delivered 20+
+                                projects and saved our clients over 105,000 hours of manual work.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Our Services</h2>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What automation services do you offer?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                We offer comprehensive automation services including: AI-powered workflow automation,
+                                process optimization and reengineering, system integration (connecting your existing
+                                tools), custom AI development, chatbot and virtual assistant creation, data processing
+                                automation, and business intelligence dashboards.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What technologies do you use?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                We work with leading automation platforms including n8n, Make (Integromat), Zapier, and
+                                custom solutions. For AI, we leverage OpenAI, Groq, and other cutting-edge LLM
+                                providers. Our tech stack also includes modern web technologies like React, Node.js, and
+                                cloud platforms like AWS, Google Cloud, and Supabase.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can you integrate with our existing systems?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Absolutely! System integration is one of our core specialties. We can connect your
+                                existing CRM, ERP, accounting software, communication tools, and databases to create a
+                                unified, automated workflow. We support APIs, webhooks, and custom connectors.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing & Process -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Pricing & Process</h2>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How much do your services cost?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Our pricing is project-based and depends on the complexity, scope, and timeline of your
+                                automation needs. We offer a free 30-minute consultation where we'll provide a custom
+                                ROI estimation for your business. Contact us to discuss your specific requirements and
+                                get a personalized quote.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What is your typical project timeline?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Project timelines vary based on complexity. Simple automations can be completed in 1-2
+                                weeks, while comprehensive enterprise solutions may take 2-3 months. During our initial
+                                consultation, we'll provide a detailed timeline based on your specific project scope.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Do you offer ongoing support?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes, we offer comprehensive ongoing support and maintenance packages. This includes
+                                monitoring, updates, troubleshooting, and optimization of your automation systems. We
+                                also provide training for your team to ensure smooth adoption and operation.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Getting Started -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Getting Started</h2>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do I get started with Digimetalab?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Getting started is easy! Simply fill out our contact form or reach out via WhatsApp.
+                                We'll schedule a free 30-minute consultation to understand your needs, analyze your
+                                current workflows, and propose a custom automation roadmap with clear ROI projections.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What information do you need from me?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                To provide the best recommendations, we'll need to understand your current business
+                                processes, pain points, tools you're currently using, and your automation goals. Don't
+                                worry if you're not sure—our discovery process will help identify the best opportunities
+                                for automation.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legal-footer">
+                <p>© 2013-2025 Digimetalab. All rights reserved.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
